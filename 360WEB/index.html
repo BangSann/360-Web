@@ -7,12 +7,11 @@
     <!-- If running this example without a local copy of A-Frame, replace this next line with: -->
     <!-- <script src="https://aframe.io/releases/<release_number>/aframe.min.js"></script> -->
    
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@3f0df33946cf12e3d552b3b4e500dd5b8ff6f692/dist/aframe-master.min.js"></script>
-
-    <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.jss"></script>
+      <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.jss"></script>
 
     <!-- Image link template to be reused. -->
     <script id="link" type="text/html">
@@ -35,7 +34,7 @@
         <img id="jembatan-thumb" crossorigin="anonymous" src="assets/J-Icon.jpg">
         <img id="bunderan-thumb" crossorigin="anonymous" src="assets/O-Icon.jpg">
         <img id="dalan-thumb" crossorigin="anonymous" src="assets/S-Icon.jpg">
-        <img id="dalan" crossorigin="anonymous" src="assets/S-Icon.jpg">
+        <img id="dalan" crossorigin="anonymous" src="assets/dalan.jpg">
         <img id="bunderan" crossorigin="anonymous" src="assets/bunderan.jpg">
         
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
@@ -54,15 +53,17 @@
       </a-entity>
 
       <!-- Camera + cursor. -->
-      <a-entity camera look-controls>
-        <a-cursor
-          id="cursor"
-          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-          event-set__mouseenter="_event: mouseenter; color: springgreen"
-          event-set__mouseleave="_event: mouseleave; color: black"
-          raycaster="objects: .link"></a-cursor>
-      </a-entity>
+      <a-entity >
+        <a-camera id="camera" look-controls=""wasd-controls-enabled="false"camera="active:true"
+        rotation="-1.3750987083139854 -3.0939720937064483 0" position="0 0 0">
+        <a-cursor id="cursor" cursor="fuse: true; fuseTimeout: 1500; maxDistance: 30"
+          geometry="primitive: ring; radiusInner: 0.031; radiusOuter: 0.05" material="color: #00FFFF; shader: flat"
+          position="0 0 -1"
+          animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+          animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+          animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1">
+        </a-cursor>
+      </a-camera>
     </a-scene>
   </body>
 </html>
