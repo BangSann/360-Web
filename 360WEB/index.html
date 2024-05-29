@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <title>Kediri</title>
     <meta name="description" content="360&deg; Image Gallery - A-Frame" />
-    <!-- If running this example without a local copy of A-Frame, replace this next line with:
-    <script src="https://aframe.io/releases/<release_number>/aframe.min.js"></script>
-    -->
+    <!-- If running this example without a local copy of A-Frame, replace this next line with: -->
+    <!-- <script src="https://aframe.io/releases/<release_number>/aframe.min.js"></script> -->
+   
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@3f0df33946cf12e3d552b3b4e500dd5b8ff6f692/dist/aframe-master.min.js"></script>
 
     <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
@@ -31,39 +31,27 @@
   <body>
     <a-scene>
       <a-assets>
-        <img
-          id="city"
-          crossorigin="anonymous"
-          src="assets/Street View 360.jpg"
-        />
-        <audio
-          id="click-sound"
-          crossorigin="anonymous"
-          src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"
-        ></audio>
+        <img id="jembatan" crossorigin="anonymous" src="./assets/Street View 360.jpg">
+        <img id="jembatan-thumb" crossorigin="anonymous" src="assets/J-Icon.jpg">
+        <img id="bunderan-thumb" crossorigin="anonymous" src="assets/O-Icon.jpg">
+        <img id="dalan-thumb" crossorigin="anonymous" src="assets/S-Icon.jpg">
+        <img id="dalan" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+        <img id="bunderan" crossorigin="anonymous" src="./assets/bunderan.jpg">
+        
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       </a-assets>
 
       <!-- 360-degree image. -->
-      <a-sky
-        id="image-360"
-        radius="10"
-        src="#city"
-        animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-        animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"
-      ></a-sky>
+      <a-sky id="image-360" radius="10" src="#jembatan"
+             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
       <!-- Image links. -->
-      <!-- <a-entity
-        id="links"
-        layout="type: line; margin: 1.5"
-        position="-1.5 -1 -4"
-      >
-        <a-entity
-          template="src: #link"
-          data-src="#city"
-          data-thumb="#city-thumb"
-        ></a-entity>
-      </a-entity> -->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1 -4">
+        <a-entity template="src: #link" data-src="#jembatan" data-thumb="#jembatan-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#bunderan" data-thumb="#bunderan-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#dalan" data-thumb="#dalan-thumb"></a-entity>
+      </a-entity>
 
       <!-- Camera + cursor. -->
       <a-entity camera look-controls>
@@ -73,8 +61,7 @@
           animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
           event-set__mouseenter="_event: mouseenter; color: springgreen"
           event-set__mouseleave="_event: mouseleave; color: black"
-          raycaster="objects: .link"
-        ></a-cursor>
+          raycaster="objects: .link"></a-cursor>
       </a-entity>
     </a-scene>
   </body>
