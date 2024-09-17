@@ -1,69 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Kediri</title>
-    <meta name="description" content="360&deg; Image Gallery - A-Frame" />
-    <!-- If running this example without a local copy of A-Frame, replace this next line with: -->
-    <!-- <script src="https://aframe.io/releases/<release_number>/aframe.min.js"></script> -->
-   
-      <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-      <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
-      <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
-      <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
-      <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.jss"></script>
-
-    <!-- Image link template to be reused. -->
-    <script id="link" type="text/html">
-      <a-entity
-        class="link"
-        geometry="primitive: plane; height: 1; width: 1"
-        material="shader: flat; src: ${thumb}"
-        sound="on: click; src: #click-sound"
-        event-set__mouseenter="scale: 1.2 1.2 1"
-        event-set__mouseleave="scale: 1 1 1"
-        event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
-        proxy-event="event: click; to: #image-360; as: fade"
-      ></a-entity>
-    </script>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panji</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script type="module" crossorigin src="/assets/index-UIxWQpQw.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BWJFlLeE.css">
   </head>
-  <body>
-    <a-scene>
-      <a-assets>
-        <img id="jembatan" crossorigin="anonymous" src="assets/Street View 360.jpg">
-        <img id="jembatan-thumb" crossorigin="anonymous" src="assets/J-Icon.jpg">
-        <img id="bunderan-thumb" crossorigin="anonymous" src="assets/O-Icon.jpg">
-        <img id="dalan-thumb" crossorigin="anonymous" src="assets/S-Icon.jpg">
-        <img id="dalan" crossorigin="anonymous" src="assets/dalan.jpg">
-        <img id="bunderan" crossorigin="anonymous" src="assets/bunderan.jpg">
-        
-        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-      </a-assets>
-
-      <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#jembatan"
-             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
-
-      <!-- Image links. -->
-      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1 -4">
-        <a-entity template="src: #link" data-src="#jembatan" data-thumb="#jembatan-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#bunderan" data-thumb="#bunderan-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#dalan" data-thumb="#dalan-thumb"></a-entity>
-      </a-entity>
-
-      <!-- Camera + cursor. -->
-      <a-entity >
-        <a-camera id="camera" look-controls=""wasd-controls-enabled="false"camera="active:true"
-        rotation="-1.3750987083139854 -3.0939720937064483 0" position="0 0 0">
-        <a-cursor id="cursor" cursor="fuse: true; fuseTimeout: 1500; maxDistance: 30"
-          geometry="primitive: ring; radiusInner: 0.031; radiusOuter: 0.05" material="color: #00FFFF; shader: flat"
-          position="0 0 -1"
-          animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
-          animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
-          animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1">
-        </a-cursor>
-      </a-camera>
-    </a-scene>
+  <body style="background-color: #6d85b3">
+    <div id="root"></div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
